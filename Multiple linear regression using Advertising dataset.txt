@@ -1,0 +1,16 @@
+import pandas as pd
+dst = pd. read_csv('/Advertising.csv')
+dst.head()
+x = dst.iloc[:,:-1]
+y = dst.iloc[:,-1]
+x.head()
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.3,random_state=100)
+from sklearn.linear_model import LinearRegression
+mr=LinearRegression()
+mr.fit(x_train,y_train)
+print('intercept:',mr.intercept_)
+print("coefficents:")
+list(zip(x,mr.coef_))
+y_pred = mr.predict(x_test)
+print("prediction:{}".format(y_pred))

@@ -1,0 +1,14 @@
+from sklearn.neighbors import KNeighborsClassifier
+x1=[7,7,3,1]
+x2=[7,4,4,4]
+target=['bad', 'bad', 'Good','Good']
+from sklearn import preprocessing
+le=preprocessing.LabelEncoder()
+target_encoded=le.fit_transform(target)
+print(target_encoded)
+features=zip(x1,x2)
+features=list(features)
+features
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(features,target)
+print(knn.predict([[3,71]]))

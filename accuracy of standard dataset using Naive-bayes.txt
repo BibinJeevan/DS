@@ -1,0 +1,24 @@
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import load_iris
+#Loading data
+irisData=load_iris()
+print("Features: ", irisData. feature_names)
+# print the label type of wine(class_ 0, class_ 1, class 2)
+print("Labels: ", irisData. target_names)
+#Create feature and target arrays
+X= irisData.data
+y=irisData. target
+#Split into training and test set
+X_train, X_test, y_train, y_test= train_test_split(X, y, test_size = 0.2,random_state=42)
+from sklearn.naive_bayes import GaussianNB
+#Create a Gaussian Classifier
+gnb=GaussianNB()
+#Train the model using the training sets
+gnb.fit(X_train, y_train)
+#Predict the response for test dataset
+print(gnb.predict([[ 7.7,2.6,6.9,2.3]]))
+y_predl= gnb.predict(X_test)
+print(y_predl)
+from sklearn.metrics import accuracy_score
+acl=accuracy_score(y_test,y_predl)
+print(acl)

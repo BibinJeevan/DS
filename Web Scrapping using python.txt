@@ -1,0 +1,7 @@
+pip install autoscraper
+from autoscraper import AutoScraper
+url="http://en.wikipedia.org/wiki/Web_scraping"
+wanted_list=['Techniques']
+Scraper=AutoScraper()
+result=Scraper.build(url,wanted_list)
+print(result)
